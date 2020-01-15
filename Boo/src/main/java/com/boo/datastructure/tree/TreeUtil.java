@@ -10,7 +10,7 @@ public class TreeUtil {
 	 * @return Root of the above tree
 	 */
 	public static TreeNode sampleTree() {
-		return constructTreeFromLevelOrder(new Integer[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 });
+		return constructTreeFromLevelOrder(new Integer[] { 6, 4, -3, 1, 1, 2, 5, 6, -1, -7, 3, 5, 3, -4, 5, -2 });
 	}
 
 	/**
