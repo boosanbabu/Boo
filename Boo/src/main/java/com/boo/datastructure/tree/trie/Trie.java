@@ -38,6 +38,28 @@ public class Trie {
 		}
 	}
 
+	public boolean search(String word) {
+		return match(word, true);
+	}
+
+	public boolean match(String word, boolean fullWord) {
+		TrieNode ptr = root;
+		for (char c : word.toCharArray()) {
+			int idx = c - 'a';
+			if (ptr.children[idx] == null)
+				return false;
+			ptr = ptr.children[idx];
+		}
+		return fullWord ? ptr.isEndOfWord : true;
+	}
+
+	/**
+	 * Returns if there is any word in the trie that starts with the given prefix.
+	 */
+	public boolean startsWith(String prefix) {
+		return match(prefix, false);
+	}
+
 	void insertGfg(String key) {
 		int level;
 		int length = key.length();
@@ -57,22 +79,28 @@ public class Trie {
 		pCrawl.isEndOfWord = true;
 	}
 
+	public boolean match(String word) {
+		TrieNode ptr = root;
+		for (char c : word.toCharArray()) {
+			int idx = c - 'a';
+			if (ptr.children[idx] == null || !ptr.children[idx].isEndOfWord)
+				return false;
+			ptr = ptr.children[idx];
+		}
+		return ptr.isEndOfWord;
+	}
+
 	public static void main(String ar[]) {
 		Trie tr = new Trie();
-		tr.insert("boost");
-		tr.insert("boosan");
-		tr.insert("boo");
-		tr.insert("ram");
-		tr.insert("boat");
-		tr.insert("root");
-		tr.insert("rambabu");
-		tr.insert("rambo");
-		tr.insert("book");
-		tr.insert("cook");
-		tr.insert("cool");
-		tr.insert("fool");
-		tr.insert("fire");
+		String[] arr = { "world", "worl", "wor", "wo", "w" };
+		for (String w : arr) {
+			tr.insert(w);
+		}
 		tr.displayContents();
+		System.out.println(tr.startsWith("booss"));
+		System.out.println(tr.startsWith("ram"));
+		System.out.println(tr.search("ram"));
+		System.out.println(tr.match("worl"));
 
 	}
 }
