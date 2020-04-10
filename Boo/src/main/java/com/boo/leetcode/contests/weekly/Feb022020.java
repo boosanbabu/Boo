@@ -1,4 +1,4 @@
-package com.boo.leet.cont02022020;
+package com.boo.leetcode.contests.weekly;
 
 import java.util.*;
 import java.util.Map.Entry;
@@ -6,7 +6,7 @@ import java.util.Map.Entry;
 import com.boo.datastructure.tree.TreeNode;
 import com.boo.datastructure.tree.TreeUtil;
 
-class Solutions {
+class Feb022020 {
 	public int[] kWeakestRows(int[][] mat, int k) {
 		if (k == 0 || mat.length == 0)
 			return new int[0];
@@ -85,7 +85,7 @@ class Solutions {
 
 	public static void main(String a[]) {
 		int[][] mat = { { 1, 1, 0, 0, 0 }, { 1, 1, 1, 1, 0 }, { 1, 0, 0, 0, 0 }, { 1, 1, 0, 0, 0 }, { 1, 1, 1, 1, 1 } };
-		Solutions s = new Solutions();
+		Feb022020 s = new Feb022020();
 
 		TreeNode root = TreeUtil.constructTreeFromLevelOrder(2, 3, 9, 10, 7, 8, 6, 5, 4, 11, 1);
 		System.out.println(s.maxProduct(root));
